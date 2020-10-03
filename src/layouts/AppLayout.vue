@@ -11,12 +11,15 @@
     >
       <Header />
     </v-app-bar>
-    <v-content :class="'route-' + $route.name">
+    <v-main :class="'route-' + $route.name">
       <v-container grid-list-md text-xs-center>
         <router-view></router-view>
       </v-container>
-    </v-content>
-    <v-footer app>
+    </v-main>
+    <v-footer
+      app
+      padless
+    >
       <BottomNav />
     </v-footer>
   </v-app>

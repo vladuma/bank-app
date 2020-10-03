@@ -24,6 +24,24 @@ const routes: Array<RouteConfig> = [
     meta: { requiresAuth: true },
     component: About,
   },
+  {
+    path: '/loan',
+    name: 'Loan',
+    meta: { requiresAuth: true },
+    component: () => import('../views/Loan.vue'),
+  },
+  {
+    path: '/repay',
+    name: 'Repay',
+    meta: { requiresAuth: true },
+    component: () => import('../views/Repay.vue'),
+  },
+  {
+    path: '/stats',
+    name: 'Stats',
+    meta: { requiresAuth: true },
+    component: () => import('../views/Stats.vue'),
+  },
 ];
 
 const router = new VueRouter({
@@ -40,9 +58,7 @@ router.beforeResolve((to, from, next) => {
       if (data && data.signInUserSession) {
         user = data;
       }
-      next({
-        path: '/',
-      });
+      next();
     }).catch((e) => {
       console.log(e);
       next({

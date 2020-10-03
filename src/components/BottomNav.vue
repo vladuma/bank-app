@@ -1,29 +1,29 @@
 <template>
   <v-bottom-navigation v-model="value">
-    <v-btn value="dashboard">
-      <v-icon>mdi-format-list-bulleted</v-icon>
+    <v-btn value="" @click="handleNavClick">
+        <v-icon>mdi-format-list-bulleted</v-icon>
     </v-btn>
 
-    <v-btn value="loan">
-      <v-icon>mdi-currency-usd-off</v-icon>
+    <v-btn value="loan" @click="handleNavClick">
+        <v-icon>mdi-currency-usd-off</v-icon>
     </v-btn>
 
-    <v-btn value="repay">
-      <v-icon>mdi-currency-usd</v-icon>
+    <v-btn value="repay" @click="handleNavClick">
+        <v-icon>mdi-currency-usd</v-icon>
     </v-btn>
 
-    <v-btn value="stats">
-      <v-icon>mdi-poll</v-icon>
+    <v-btn value="stats" @click="handleNavClick">
+        <v-icon>mdi-poll</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>
 
 <script>
 export default {
-  data: () => ({ value: 'recent' }),
+  data: () => ({ value: '' }),
   methods: {
     handleNavClick(e) {
-      this.value = e.target.value;
+      this.$router.push(`/${e.currentTarget.value}`);
     },
   },
 };
