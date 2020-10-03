@@ -1,12 +1,24 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <component :is='layout'></component>
 </template>
+
+<script>
+import AppLayout from './layouts/AppLayout.vue';
+
+const defaultLayout = 'app-layout';
+
+export default {
+  name: 'App',
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || defaultLayout);
+    },
+  },
+  components: {
+    'app-layout': AppLayout,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -15,6 +27,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  box-sizing: border-box;
 }
 
 #nav {

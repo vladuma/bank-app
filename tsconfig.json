@@ -13,8 +13,10 @@
     "sourceMap": true,
     "baseUrl": ".",
     "allowJs": true,
+    "noImplicitAny": false,
     "types": [
       "webpack-env",
+      "aws-amplify-vue",
       "mocha",
       "chai"
     ],
